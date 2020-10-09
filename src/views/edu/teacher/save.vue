@@ -79,13 +79,13 @@ export default {
         level: 1,
         career: "",
         intro: "",
-        avatar: "",
+        avatar: ""
       },
       //上传弹框组件是否显示
       imagecropperShow: false,
       imagecropperKey: 0, //上传组件key值
       BASE_API: process.env.BASE_API, //获取dev.env.js里面地址
-      saveBtnDisabled: false, // 保存按钮是否禁用,
+      saveBtnDisabled: false // 保存按钮是否禁用,
     };
   },
   created() {
@@ -97,7 +97,7 @@ export default {
     $route(to, from) {
       //路由变化方式，路由发生变化，方法就会执行
       this.init();
-    },
+    }
   },
   methods: {
     close() {
@@ -128,7 +128,7 @@ export default {
     },
     //根据讲师id查询的方法
     getInfo(id) {
-      teacherApi.getTeacherInfo(id).then((response) => {
+      teacherApi.getTeacherInfo(id).then(response => {
         this.teacher = response.data.teacher;
       });
     },
@@ -145,11 +145,11 @@ export default {
     },
     //修改讲师的方法
     updateTeacher() {
-      teacherApi.updateTeacherInfo(this.teacher).then((response) => {
+      teacherApi.updateTeacherInfo(this.teacher).then(response => {
         //提示信息
         this.$message({
           type: "success",
-          message: "修改成功!",
+          message: "修改成功!"
         });
         //回到列表页面 路由跳转
         this.$router.push({ path: "/teacher/table" });
@@ -157,17 +157,17 @@ export default {
     },
     //添加讲师的方法
     saveTeacher() {
-      teacherApi.addTeacher(this.teacher).then((response) => {
+      teacherApi.addTeacher(this.teacher).then(response => {
         //添加成功
         //提示信息
         this.$message({
           type: "success",
-          message: "添加成功!",
+          message: "添加成功!"
         });
         //回到列表页面 路由跳转
         this.$router.push({ path: "/teacher/table" });
       });
-    },
-  },
+    }
+  }
 };
 </script>
